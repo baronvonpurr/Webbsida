@@ -1,0 +1,95 @@
+body{ /*i detta block listar jag allting som har med utseendet i body*/
+    background-color: rgb(117, 33, 33); /*bakgrundsfärgen bestämms*/
+    height: 97vh; /*höjden på sidan*/
+    display:grid; /*jag genererar gridden så att den syns*/
+    grid-template-columns: 30% 30% auto; /*delar up gridden i tre kolumner vågrätt, två är 30% var av sidan och den tredje får resten*/
+    grid-template-rows: 30% 30% auto 100px; /*delar up gridden i tre kolumner lodrätt två får 30% av sidan var, en blir 100 pixlar hög och den näst längst ner får resten*/
+    grid-template-areas: /*här delas alla delarna av gridden upp så att det blir organiserat så som man vill ha det*/
+        "header header header" /*alla de olika områdena delas upp här*/
+        "myreaction text1 alexwords"
+        ". . aleximage" /*punkter betyder att inget är där*/
+        "footer footer footer"
+}
+
+.aleximage{ /*här specificeras en speciell klass istället för ett element*/
+    height: 300px; /*höjden på denna bild ska bli 300 pixlar*/
+    width: 300px; /*bredden ska bli 300 pixlar*/
+}
+
+.alexlink{
+    grid-area: aleximage; /*specificerar vilket område denna klass ligger i just här är det "aleximage" vilket är den tredje raden lodrätt och tredje raden vågrätt*/
+}
+
+.myreaction{
+    grid-area: myreaction;
+    height: 300px;
+    width: 300px;
+}
+
+header > nav > .link { /*detta block med kod har bara effekt på .link klassen om den är i en nav som är i header*/
+    background-color: rgb(156, 150, 65);
+    height: 100px;
+    width: auto;
+    display:grid;
+    align-items: center; /*detta gör så att allt hamnar i mitten*/
+}
+
+nav ul{
+    padding: 0; /*här tar vi bort paddingen som automatiskt ha laggts til*/
+}
+
+nav > .link {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*här delar vi upp denna grid i tre lika stora fraktioner*/
+}
+
+nav > .link > li {
+    list-style-type: none; /*gör så att allt i navigations menyn inte har punkter eftersom det tekniskt sett är en lista*/
+}
+nav > .link > li > a {
+    display: block; /*skapar ett block*/
+    color: blue; /*ändrar färgen på texten så att den blir blå*/
+    padding: 20px; /*ändrar hur tjock paddingen är på blocket*/
+    text-align: center; /*gör så att texten hamnar i mitten*/
+    background-color: rgb(138, 39, 39);
+    margin: 5px; /*gör så att mellanrumet mellan blocket och andra saker är 5 pixlar brett*/
+}
+
+.list{
+    color red;
+}
+
+nav > .graf {
+    display:grid;
+}
+
+table, th, td{
+    border: 1px black solid; /*gör en svat border runtom rutan i kolumnen så att det är lättare att urskilja varje ruta*/ 
+    border-collapse: collapse; /*gör så att bordern på rutorna kombineras så att de inte blir sina egna separata rutor*/
+    width:100px;
+}
+
+header {
+    grid-area: header;
+}
+
+footer {
+    display:grid;
+    grid-area: footer;
+    background-color: rgb(138, 39, 39);
+    text-align: center;
+}
+
+.head{
+    text-align: center;
+    font-size: 22px;
+    color: rgb(192, 39, 39);
+}
+
+th:nth-child(even){ /*gör så att varje jämn vågrät rad i tabellen blir en sorts röd*/
+    background-color: rgb(192, 39, 39);
+}
+
+th:nth-child(odd){ /*gör så att varje ojämn vågrät rad i tabellen blir en annan sorts röd*/
+    background-color: rgb(138, 39, 39);
+}
